@@ -1,0 +1,4 @@
+#!/bin/bash
+
+directory=$(basename $(pwd))
+java -jar ./build/libs/$directory.jar "$@"

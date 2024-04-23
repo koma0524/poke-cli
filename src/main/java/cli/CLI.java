@@ -28,16 +28,15 @@ public class CLI implements Runnable {
       if (option != null && command.equals("get")) {
         int limit = Integer.parseInt(option);
         new GetPokeNameList(limit).run();
-      }
-      
-      if (option != null && command.equals("status")) {
+      } else if (option != null && command.equals("status")) {
         String name = option;
         new GetPokeStatus(name).run();
+      } else if (command.equals("hello")) {
+        new HelloCommand().run();
+      } else if(command  != null) {
+        System.out.println("対応しないコマンドが入力されています「poke help」を入力して現在対応しているコマンドを確認してください");
       }
       
-      if (command.equals("hello")) {
-        new HelloCommand().run();
-      }
     } catch (Exception e) {
       e.printStackTrace();
     }

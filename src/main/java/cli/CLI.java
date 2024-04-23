@@ -22,8 +22,12 @@ public class CLI implements Runnable {
       // オプションが存在する時だけ変数に入れる
       if (args.length == 2) {
         option = args[1];
+        
+        //オプションの大文字小文字の表記ゆれをなくす
+        option = option.toLowerCase();
+        
       }
-
+      
       // コマンドごとに処理を分岐
       if (option != null && command.equals("get")) {
         int limit = Integer.parseInt(option);
